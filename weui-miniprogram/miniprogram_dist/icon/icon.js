@@ -41,19 +41,18 @@ Component({
 	},
 	methods: {
 		_genSrcByIcon(v) {
-			this._genSrc(_icondata.default[v][getFixedIconType(this.data.type)]);
+			this._genSrc(iconData[v][getFixedIconType(this.data.type)])
 		},
 		_genSrcByType(v) {
-			const iconDataItem = _icondata.default[this.data.icon];
-			if (iconDataItem) this._genSrc(iconDataItem[getFixedIconType(v)]);
+			const iconDataItem = iconData[this.data.icon]
+			if (iconDataItem) this._genSrc(iconDataItem[getFixedIconType(v)])
 		},
 		_genSrc(rawData) {
-			if (!rawData) return; // type 不存在
-			const base64 = _base.default.encode(rawData);
+			if (!rawData) return // type 不存在
+			const base64 = Base64.encode(rawData)
 			this.setData({
 				src: 'data:image/svg+xml;base64,' + base64
-			});
+			})
 		}
-
 	}
 });
